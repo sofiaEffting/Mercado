@@ -1,0 +1,233 @@
+@font-face {
+    font-family: 'Triplex';
+    src: url('/assets/font/Triplex-ExtraBold-Extra-Bold.ttf') format('truetype'),
+    url('/assets/font/triplex-sans-ot-bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+#container-titulo { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 10vh;
+}
+
+#container-formulario {
+    width: 100vw;
+    height: 90vh;
+    background-color: #F8991D;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#formulario form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.item-form {
+    margin: 20px 0;
+}
+
+#formulario input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    border-bottom: 1px solid gray;
+}
+
+#formulario button{
+    padding: 10px 30%;
+    border-radius: 5px;
+    background-color: #0F6944;
+    cursor: pointer;
+    color: white;
+    font-family: 'Triplex';
+    font-size: 18px;
+}
+
+#formulario label {
+    font-family: 'Triplex';
+    font-size: 30px;
+}
+
+#formulario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40vw;
+    height: 40vh;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#jogo {
+    display: none;
+    width: 100vw;
+    height: 90vh;
+}
+
+#container-sacolas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    width: 40vw;
+}
+
+#container-cartoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    width: 60vw;
+    background-color:blueviolet;
+}
+
+.container-linha-cartoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 25%;
+    width: 100%;
+    background-color:aquamarine;
+}
+
+.sacolas {
+    width: 95%;
+    position: relative;
+    height: 80%;
+    background-color: blue;
+}
+
+#container-bloco-cartoes {
+    width: 80%;
+    height: 80%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#sacola2, #sacola3, #sacola4 {
+    display: none;
+}
+
+.verso-cartoes {
+    display: none;
+    cursor: pointer;
+}
+
+.frente-cartoes {
+    display: block;
+    cursor: grab;
+}
+
+.imagens-cartoes {
+    width: 100%;
+    height: 100%;
+}
+
+#container-regras {
+    display: none;
+    width: 100vw;
+    height: 90vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8991D;
+}
+
+#container-regras-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 60%;
+    height: 90%;
+    background-color: white;
+    border-radius: 10px;
+    font-family: 'Triplex';
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#titulo-regras {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+#botao-regras-sair {
+    padding: 10px 20%;
+    border-radius: 5px;
+    background-color: #0F6944;
+    cursor: pointer;
+    color: white;
+    font-family: 'Triplex';
+    font-size: 25px;
+    margin: 15px 0;
+}
+
+#icone_info {
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    color: #0F6944;
+    cursor: pointer;
+}
+
+#titulo_mercado {
+    font-size: 60px;
+    color: #0F6944;
+    font-family: 'Triplex';
+    font-weight: normal;
+}
+
+.containers-sacolas-drop {
+    width: 200px;
+    height: 100px;
+    background-color: brown;
+    display: flex;
+    position: absolute;
+    border: 1px solid black;
+}
+
+.container-img-cartao {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+#drop1 {
+    top: 125px;
+    left: 260px;
+}
+
+#drop2 {
+    top: 300px;
+    left: 260px;
+}
+
+#drop3 {
+    top: 300px;
+    left: 50px;
+}
