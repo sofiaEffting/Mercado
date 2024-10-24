@@ -1,7 +1,6 @@
 @font-face {
     font-family: 'Triplex';
-    src: url('/assets/font/Triplex-ExtraBold-Extra-Bold.ttf') format('truetype'),
-    url('/assets/font/triplex-sans-ot-bold.otf') format('opentype');
+    src: url('/assets/font/triplex-sans-ot-bold.otf') format('opentype');
     font-weight: bold;
     font-style: normal;
 }
@@ -24,13 +23,20 @@ body {
     height: 10vh;
 }
 
+#container-titulo div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vw;
+    height: 10vh;
+}
+
 #container-formulario {
     width: 100vw;
     height: 90vh;
     background-color: #F8991D;
     justify-content: center;
     align-items: center;
-    display: flex;
 }
 
 #formulario form {
@@ -78,17 +84,18 @@ body {
 }
 
 #jogo {
-    display: none;
     width: 100vw;
     height: 90vh;
+    background-color: #F8991D;
 }
 
 #container-sacolas {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #0F6944;
     height: 90vh;
-    width: 40vw;
+    width: 50vw;
 }
 
 #container-cartoes {
@@ -96,8 +103,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 90vh;
-    width: 60vw;
-    background-color:blueviolet;
+    width: 50vw;
 }
 
 .container-linha-cartoes {
@@ -106,27 +112,25 @@ body {
     justify-content: space-between;
     height: 25%;
     width: 100%;
-    background-color:aquamarine;
 }
 
 .sacolas {
-    width: 95%;
+    width: 680px;
     position: relative;
-    height: 80%;
-    background-color: blue;
+    height: 450px;
+
 }
 
 #container-bloco-cartoes {
     width: 80%;
     height: 80%;
-    background-color: blue;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-#sacola2, #sacola3, #sacola4 {
+#sacola1, #sacola3, #sacola4 {
     display: none;
 }
 
@@ -138,6 +142,7 @@ body {
 .frente-cartoes {
     display: block;
     cursor: grab;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
 .imagens-cartoes {
@@ -146,10 +151,8 @@ body {
 }
 
 #container-regras {
-    display: none;
     width: 100vw;
     height: 90vh;
-    display: none;
     align-items: center;
     justify-content: center;
     background-color: #F8991D;
@@ -174,6 +177,12 @@ body {
 #titulo-regras {
     font-size: 30px;
     margin-bottom: 15px;
+}
+
+#trilhas {
+    color: white;
+    background-color: #F8991D;
+    font-family: 'Triplex';
 }
 
 #botao-regras-sair {
@@ -214,7 +223,6 @@ body {
 .container-img-cartao {
     width: 100%;
     height: 100%;
-    background-color: red;
 }
 
 #drop1 {

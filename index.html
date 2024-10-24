@@ -5,14 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="shortcut icon" href="/assets/images/carrinho_favicon.png" type="image/x-icon">
     <title>Mercado</title>
 </head>
 
 <body>
     <header>
         <div id="container-titulo">
-            <div> </div>
-            <h1 id="titulo_mercado">Mercado</h1>
+            <div> <span id="trilhas">•T•R•I•L•H•A•S•</span></div>
+            <div>
+                
+                <h1 id="titulo_mercado">MERCADO</h1>
+            </div>
             <img src="/assets/images/info_icon.png" alt="Regras" id="icone_info" onclick="mostrar_regras()">
         </div>
     </header>
@@ -21,13 +25,13 @@
             <div id="container-formulario">
                 <div id="formulario">
 
-                    <form action="">
+                    <form>
 
                         <label class="item-form" for="usuarios">Número de Jogadores</label>
                         <input class="item-form" type="number" name="usuarios" id="usuarios" placeholder="2, 3 ou 4"
                             required autofocus>
 
-                        <button class="item-form" id="botao-enviar" onclick="enviar() ">Começar</button>
+                        <button class="item-form" id="botao-enviar">Começar</button>
 
                     </form>
                 </div>
@@ -82,7 +86,7 @@
                         CAQUI, é possivel colocar cartões que possuam imagens de alimentos que se iniciem com a mesma
                         silaba oral, como, por exemplo, CAJU.
                     </p>
-                    <button id="botao-regras-sair" onclick="jogar()">Jogar</button>
+                    <button id="botao-regras-sair">Jogar</button>
                 </div>
             </div>
         </section>
