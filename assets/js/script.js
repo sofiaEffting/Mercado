@@ -72,8 +72,8 @@ function sortear_cartelas() {
 
 function allowDrop(ev) {
     ev.preventDefault();
-  }
-  
+}
+
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
@@ -81,10 +81,38 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-    trocar_jogador_atual();
+    var card = document.getElementById(data);
+    ev.target.appendChild(card);
+
+    card.setAttribute('draggable', false);
+    card.style.cursor = 'default';
+
+    var frente = card.querySelector('.frente-cartoes');
+    var verso = card.querySelector('.verso-cartoes');
+    if (frente && verso) {
+        frente.style.display = 'block';
+        verso.style.display = 'none';
+        frente.removeEventListener('click', virarCartao);
+    }
 }
 
+function virarCartao(ev) {
+    var frente = ev.currentTarget.querySelector('.frente-cartoes');
+    var verso = ev.currentTarget.querySelector('.verso-cartoes');
+
+    if (frente.style.display === 'block') {
+        frente.style.display = 'none';
+        verso.style.display = 'block';
+    } else {
+        frente.style.display = 'block';
+        verso.style.display = 'none';
+    }
+}
+
+// Adicionar evento de click para virar cartões
+document.querySelectorAll('.cartao').forEach(cartao => {
+    cartao.addEventListener('click', virarCartao);
+});
 function trocar_jogador_atual() {
 
     jogador_atual++;

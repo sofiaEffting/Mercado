@@ -89,13 +89,43 @@ body {
     background-color: #F8991D;
 }
 
-#container-sacolas {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90vh;
-    width: 50vw;
+.sacolas-container {
+    position: relative;
+    display: inline-block;
 }
+
+.containers-sacolas-drop {
+    width: 200px; 
+    height: 100px; 
+    background-color: rgba(165, 42, 42, 0.5);
+    position: absolute;
+    border: 1px solid black;
+}
+
+#drop1 {
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+#drop2 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#drop3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#drop4 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 #container-cartoes {
     display: flex;
