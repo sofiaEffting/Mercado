@@ -1,9 +1,14 @@
-let numero_jogadores = 0
+let numero_jogadores = 0;
+let cartelas = ['maçã', 'abacaxi', 'caqui', 'pimenta']; 
+let jogadores = {}; 
+let jogador_atual = 1;
+let num_cartela = 1;
 
 document.body.onload = () => {
     document.getElementById("container-regras").style.display = "none";
     document.getElementById("container-formulario").style.display = "flex";
     document.getElementById("jogo").style.display = "none";
+    embaralharCartoes();
 }
 
 function mostrar_regras() {
@@ -15,10 +20,11 @@ function mostrar_regras() {
 document.getElementById("botao-regras-sair").addEventListener("click", () => {
     document.getElementById("container-regras").style.display = "none";
     document.getElementById("jogo").style.display = "flex";
+    sortear_cartelas();
 })
 
 document.getElementById("botao-enviar").addEventListener("click", function(event) {
-    event.preventDefault();  // Previna o comportamento padrão do formulário
+    event.preventDefault(); 
     numero_jogadores = document.getElementById("usuarios").value;
     if (validar_numero_jogadores()) {
         mostrar_regras();
@@ -42,8 +48,26 @@ function validar_numero_jogadores() {
 }
 
 function numero_cartelas_por_jogador() {
-    validar_numero_jogadores();
-    return Math.ceil(4 / numero_jogadores);
+    if (!validar_numero_jogadores()) return 0;
+    return Math.ceil(cartelas.length / numero_jogadores);
+}
+
+function sortear_cartelas() {
+
+    for (let i = 1; i <= numero_jogadores; i++) {
+        jogadores[`Jogador ${i}`] = [];
+    }
+
+    for (let i = 0; i < 2; i++) { 
+        for (let j = 1; j <= numero_jogadores; j++) {
+
+            let cartelaIndex = Math.floor(Math.random() * cartelas);
+            let cartelaSorteada = cartelas.splice(cartelaIndex, 1)[0];
+            jogadores[`Jogador ${j}`].push(cartelaSorteada);
+        }
+    }
+
+    console.log(jogadores);
 }
 
 function allowDrop(ev) {
@@ -58,4 +82,68 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
+    trocar_jogador_atual();
 }
+
+function trocar_jogador_atual() {
+
+    jogador_atual++;
+
+    if (jogador_atual > numero_jogadores) {
+        jogador_atual = 1;
+
+        if (numero_jogadores == 2) {
+            num_cartela = (num_cartela === 0) ? 1 : 0;
+        }
+    }
+
+    cesta = jogadores[`Jogador ${jogador_atual}`][num_cartela];
+}
+
+function virar_cartao(id) { 
+    let elemento_atual = document.getElementById(id);
+    let outro_lado = id.includes("frente") 
+        ? id.replace("frente", "verso") 
+        : id.replace("verso", "frente");
+
+    if (elemento_atual.style.display === "block" || elemento_atual.style.display === "") {
+        elemento_atual.style.display = "none";
+        document.getElementById(outro_lado).style.display = "block";
+    } else {
+        elemento_atual.style.display = "block";
+        document.getElementById(outro_lado).style.display = "none";
+    }
+}
+
+function embaralharCartoes() {
+    const containerBloco = document.getElementById('container-bloco-cartoes');
+    const linhasCartoes = Array.from(containerBloco.getElementsByClassName('container-linha-cartoes'));
+
+    // Armazena todos os cartões de todas as linhas em um único array
+    let todosCartoes = [];
+    linhasCartoes.forEach(linha => {
+        const cartoes = Array.from(linha.getElementsByClassName('container-img-cartao'));
+        todosCartoes = todosCartoes.concat(cartoes);
+    });
+
+    // Embaralha o array de cartões usando o algoritmo Fisher-Yates
+    for (let i = todosCartoes.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [todosCartoes[i], todosCartoes[j]] = [todosCartoes[j], todosCartoes[i]];
+    }
+
+    // Limpa o container e recria as linhas
+    containerBloco.innerHTML = '';
+    let index = 0;
+    linhasCartoes.forEach(linha => {
+        linha.innerHTML = '';  // Limpa a linha atual
+        // Adiciona três cartões embaralhados em cada linha
+        for (let i = 0; i < 3; i++) {
+            linha.appendChild(todosCartoes[index++]);
+        }
+        containerBloco.appendChild(linha);  // Reinsere a linha no container
+    });
+}
+
+
+
