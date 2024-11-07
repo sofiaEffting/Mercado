@@ -14,7 +14,7 @@
         <div id="container-titulo">
             <div> <span id="trilhas">•T•R•I•L•H•A•S•</span></div>
             <div>
-                
+
                 <h1 id="titulo_mercado">MERCADO</h1>
             </div>
             <img src="/assets/images/info_icon.png" alt="Regras" id="icone_info" onclick="mostrar_regras()">
@@ -55,26 +55,28 @@
                         sobre a mesa viradas para baixo, as cartelas com imagens de alimentos</p>
                     <h3>O JOGO</h3>
                     <p>
-                    Sortear o jogador que dará início à partida. Este deve sortear uma sacola de compras e dizer em
-                    voz alta, o nome do alimento que ja está dentro dela.
+                        Sortear o jogador que dará início à partida. Este deve sortear uma sacola de compras e dizer em
+                        voz alta, o nome do alimento que ja está dentro dela.
 
-                    Em seguida, passa a vez para o jogador da sua direita fazer o mesmo. Segue-se assim até que
-                    todos os jogadores tenham suas sacolas.
+                        Em seguida, passa a vez para o jogador da sua direita fazer o mesmo. Segue-se assim até que
+                        todos os jogadores tenham suas sacolas.
 
-                    Caso não tenha 4 jogadores, algumas sacolas sobrarão e deveram ficar fora só jogo.
+                        Caso não tenha 4 jogadores, algumas sacolas sobrarão e deveram ficar fora só jogo.
 
-                    No caso de haver somente dois jogadores, estes devem pegar duas sacolas de compras cada um.
-                    <br> <br>
-                    • O primeiro jogador deve sortear um dos cartões que estão na mesa mostrar para os demais
-                    participantes e verificar se ele pode entrar em sua sacola de compras. <br>
-                    • Se o cartão sorteado puder entrar em sua sacola, ele o coloca no lugar adequado e passa a vez ao
-                    jogador da direita. Caso não faça parte de sua sacola, ele deve devolver o cartão à mesa, virado
-                    para baixo, e passar a vez ao jogador da direita. <br>
-                    • Segue-se dessa forma, até que algum jogador tenha completado toda a sua sacola de compras. <br>
-                    • Caso um jogador ache que alguém pegou um alimento que serve para a sua sacola, poderá, em vez
-                    de sortear um novo cartão, pegar o cartão da sacola desse jogador. Nesse caso, ele deve
-                    justificar por que aquele alimento é de sua sacola, pois é preciso que todos os jogadores
-                    estejam de acordo.
+                        No caso de haver somente dois jogadores, estes devem pegar duas sacolas de compras cada um.
+                        <br> <br>
+                        • O primeiro jogador deve sortear um dos cartões que estão na mesa mostrar para os demais
+                        participantes e verificar se ele pode entrar em sua sacola de compras. <br>
+                        • Se o cartão sorteado puder entrar em sua sacola, ele o coloca no lugar adequado e passa a vez
+                        ao
+                        jogador da direita. Caso não faça parte de sua sacola, ele deve devolver o cartão à mesa, virado
+                        para baixo, e passar a vez ao jogador da direita. <br>
+                        • Segue-se dessa forma, até que algum jogador tenha completado toda a sua sacola de compras.
+                        <br>
+                        • Caso um jogador ache que alguém pegou um alimento que serve para a sua sacola, poderá, em vez
+                        de sortear um novo cartão, pegar o cartão da sacola desse jogador. Nesse caso, ele deve
+                        justificar por que aquele alimento é de sua sacola, pois é preciso que todos os jogadores
+                        estejam de acordo.
                     </p>
                     <h3>REGRAS LINGUÍSTICAS</h3>
                     <p>
@@ -96,15 +98,16 @@
 
                 <div id="container-sacolas">
 
-                    <img src="/assets/images/cesta_abacaxi.png" id="sacola1" class="sacolas" alt="Sacola 1">
+                    <img src="/assets/images/cesta_abacaxi.png" id="cesta_abacaxi" class="sacolas" alt="Sacola 1">
 
-                    <img src="/assets/images/cesta_caqui.jpg" id="sacola2" class="sacolas" alt="Sacola 2">
+                    <img src="/assets/images/cesta_caqui.jpg" id="cesta_caqui" class="sacolas" alt="Sacola 2">
 
-                    <img src="/assets/images/cesta_maca.png" id="sacola3" class="sacolas" alt="Sacola 3">
+                    <img src="/assets/images/cesta_maca.png" id="cesta_maca" class="sacolas" alt="Sacola 3">
 
-                    <img src="/assets/images/cesta_pimenta.jpg" id="sacola4" class="sacolas" alt="Sacola 4">
+                    <img src="/assets/images/cesta_pimenta.jpg" id="cesta_pimenta" class="sacolas" alt="Sacola 4">
 
                 </div>
+
                 <div ondrop="drop(event)" ondragover="allowDrop(event)" class="containers-sacolas-drop" id="drop1">
                 </div>
 
@@ -121,25 +124,29 @@
                             <div class="container-img-cartao" id="cartao1">
                                 <img src="/assets/images/acerola.jpg" alt="Cartão"
                                     class="frente-cartoes imagens-cartoes" draggable="true" ondragstart="drag(event)"
-                                    id="frente-cartao1"  onclick="virar_cartao(this.id)">
+                                    id="frente-cartao1" onclick="virar_cartao(this.id)">
 
                                 <img src="/assets/images/Traseira.jpeg" alt="Verso do cartão"
-                                    class="verso-cartoes imagens-cartoes" id="verso-cartao1" onclick="virar_cartao(this.id)">
+                                    class="verso-cartoes imagens-cartoes" id="verso-cartao1"
+                                    onclick="virar_cartao(this.id)">
                             </div>
                             <div class="container-img-cartao" id="cartao2">
                                 <img src="/assets/images/maracuja.jpg" alt="Cartão"
                                     class="frente-cartoes imagens-cartoes" draggable="true" ondragstart="drag(event)"
-                                    id="frente-cartao2"  onclick="virar_cartao(this.id)">
+                                    id="frente-cartao2" onclick="virar_cartao(this.id)">
 
                                 <img src="/assets/images/Traseira.jpeg" alt="Verso do cartão"
-                                    class="verso-cartoes imagens-cartoes" id="verso-cartao2"  onclick="virar_cartao(this.id)">
+                                    class="verso-cartoes imagens-cartoes" id="verso-cartao2"
+                                    onclick="virar_cartao(this.id)">
                             </div>
                             <div class="container-img-cartao" id="cartao3">
                                 <img src="/assets/images/cacau.jpg" alt="Cartão" class="frente-cartoes imagens-cartoes"
-                                    draggable="true" ondragstart="drag(event)" id="frente-cartao3" onclick="virar_cartao(this.id)">
+                                    draggable="true" ondragstart="drag(event)" id="frente-cartao3"
+                                    onclick="virar_cartao(this.id)">
 
                                 <img src="/assets/images/Traseira.jpeg" alt="Verso do cartão"
-                                    class="verso-cartoes imagens-cartoes" id="verso-cartao3" onclick="virar_cartao(this.id)">
+                                    class="verso-cartoes imagens-cartoes" id="verso-cartao3"
+                                    onclick="virar_cartao(this.id)">
                             </div>
 
                         </div>
@@ -150,14 +157,17 @@
                                     id="frente-cartao4" onclick="virar_cartao(this.id)">
 
                                 <img src="/assets/images/Traseira.jpeg" alt="Verso do cartão"
-                                    class="verso-cartoes imagens-cartoes" id="verso-cartao4" onclick="virar_cartao(this.id)">
+                                    class="verso-cartoes imagens-cartoes" id="verso-cartao4"
+                                    onclick="virar_cartao(this.id)">
                             </div>
                             <div class="container-img-cartao" id="cartao5">
                                 <img src="/assets/images/arroz.jpg" alt="Cartão" class="frente-cartoes imagens-cartoes"
-                                    draggable="true" ondragstart="drag(event)" id="frente-cartao5" onclick="virar_cartao(this.id)">
+                                    draggable="true" ondragstart="drag(event)" id="frente-cartao5"
+                                    onclick="virar_cartao(this.id)">
 
                                 <img src="/assets/images/Traseira.jpeg" alt="Verso do cartão"
-                                    class="verso-cartoes imagens-cartoes" id="verso-cartao5" onclick="virar_cartao(this.id)">
+                                    class="verso-cartoes imagens-cartoes" id="verso-cartao5"
+                                    onclick="virar_cartao(this.id)">
                             </div>
                             <div class="container-img-cartao" id="cartao6">
                                 <img src="/assets/images/macarrao.jpg" alt="Cartão"
@@ -165,16 +175,19 @@
                                     id="frente-cartao6" onclick="virar_cartao(this.id)">
 
                                 <img src="/assets/images/Traseira.jpeg" alt="Verso do cartão"
-                                    class="verso-cartoes imagens-cartoes" id="verso-cartao6" onclick="virar_cartao(this.id)">
+                                    class="verso-cartoes imagens-cartoes" id="verso-cartao6"
+                                    onclick="virar_cartao(this.id)">
                             </div>
                         </div>
                         <div class="container-linha-cartoes">
                             <div class="container-img-cartao" id="cartao7">
                                 <img src="/assets/images/caju.jpg" alt="Cartão" class="frente-cartoes imagens-cartoes"
-                                    draggable="true" ondragstart="drag(event)" id="frente-cartao7" onclick="virar_cartao(this.id)">
+                                    draggable="true" ondragstart="drag(event)" id="frente-cartao7"
+                                    onclick="virar_cartao(this.id)">
 
                                 <img src="/assets/images/Traseira.jpeg" alt="Verso do cartão"
-                                    class="verso-cartoes imagens-cartoes" id="verso-cartao7" onclick="virar_cartao(this.id)">
+                                    class="verso-cartoes imagens-cartoes" id="verso-cartao7"
+                                    onclick="virar_cartao(this.id)">
                             </div>
                             <div class="container-img-cartao" id="cartao8">
                                 <img src="/assets/images/pirulito.jpg" alt="Cartão"
@@ -182,7 +195,8 @@
                                     id="frente-cartao8" onclick="virar_cartao(this.id)">
 
                                 <img src="/assets/images/Traseira.jpeg" alt="Verso do cartão"
-                                    class="verso-cartoes imagens-cartoes" id="verso-cartao8" onclick="virar_cartao(this.id)">
+                                    class="verso-cartoes imagens-cartoes" id="verso-cartao8"
+                                    onclick="virar_cartao(this.id)">
                             </div>
                             <div class="container-img-cartao" id="cartao9">
                                 <img src="/assets/images/abobrinha.jpg" alt="Cartão"
@@ -190,7 +204,8 @@
                                     id="frente-cartao9" onclick="virar_cartao(this.id)">
 
                                 <img src="/assets/images/Traseira.jpeg" alt="Verso do cartão"
-                                    class="verso-cartoes imagens-cartoes" id="verso-cartao9" onclick="virar_cartao(this.id)">
+                                    class="verso-cartoes imagens-cartoes" id="verso-cartao9"
+                                    onclick="virar_cartao(this.id)">
                             </div>
                         </div>
                         <div class="container-linha-cartoes">
@@ -200,14 +215,17 @@
                                     id="frente-cartao10" onclick="virar_cartao(this.id)">
 
                                 <img src="/assets/images/Traseira.jpeg" alt="Verso do cartão"
-                                    class="verso-cartoes imagens-cartoes" id="verso-cartao10" onclick="virar_cartao(this.id)">
+                                    class="verso-cartoes imagens-cartoes" id="verso-cartao10"
+                                    onclick="virar_cartao(this.id)">
                             </div>
                             <div class="container-img-cartao" id="cartao11">
                                 <img src="/assets/images/pipoca.jpg" alt="Cartão" class="frente-cartoes imagens-cartoes"
-                                    draggable="true" ondragstart="drag(event)" id="frente-cartao11" onclick="virar_cartao(this.id)">
+                                    draggable="true" ondragstart="drag(event)" id="frente-cartao11"
+                                    onclick="virar_cartao(this.id)">
 
                                 <img src="/assets/images/Traseira.jpeg" alt="Verso do cartão"
-                                    class="verso-cartoes imagens-cartoes" id="verso-cartao11" onclick="virar_cartao(this.id)">
+                                    class="verso-cartoes imagens-cartoes" id="verso-cartao11"
+                                    onclick="virar_cartao(this.id)">
                             </div>
                             <div class="container-img-cartao" id="cartao12">
                                 <img src="/assets/images/macaxeira.jpg" alt="Cartão"
@@ -215,7 +233,8 @@
                                     id="frente-cartao12" onclick="virar_cartao(this.id)">
 
                                 <img src="/assets/images/Traseira.jpeg" alt="Verso do cartão"
-                                    class="verso-cartoes imagens-cartoes" id="verso-cartao12" onclick="virar_cartao(this.id)">
+                                    class="verso-cartoes imagens-cartoes" id="verso-cartao12"
+                                    onclick="virar_cartao(this.id)">
                             </div>
                         </div>
                     </div>

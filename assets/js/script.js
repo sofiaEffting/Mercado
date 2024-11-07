@@ -1,8 +1,9 @@
 let numero_jogadores = 0;
-let cartelas = ['maçã', 'abacaxi', 'caqui', 'pimenta']; 
+let cartelas = ['maca', 'abacaxi', 'caqui', 'pimenta']; 
 let jogadores = {}; 
 let jogador_atual = 1;
-let num_cartela = 1;
+let num_cesta_atual = 0;
+let numero_cartelas_no_jogo = 0;
 
 document.body.onload = () => {
     document.getElementById("container-regras").style.display = "none";
@@ -21,6 +22,7 @@ document.getElementById("botao-regras-sair").addEventListener("click", () => {
     document.getElementById("container-regras").style.display = "none";
     document.getElementById("jogo").style.display = "flex";
     sortear_cartelas();
+    mostrar_cesta(jogadores[`Jogador ${jogador_atual}`][num_cesta_atual]);
 })
 
 document.getElementById("botao-enviar").addEventListener("click", function(event) {
@@ -61,7 +63,7 @@ function sortear_cartelas() {
     for (let i = 0; i < 2; i++) { 
         for (let j = 1; j <= numero_jogadores; j++) {
 
-            let cartelaIndex = Math.floor(Math.random() * cartelas);
+            let cartelaIndex = Math.floor(Math.random() * cartelas.length);
             let cartelaSorteada = cartelas.splice(cartelaIndex, 1)[0];
             jogadores[`Jogador ${j}`].push(cartelaSorteada);
         }
@@ -81,9 +83,13 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-    trocar_jogador_atual();
+    var element = document.getElementById(data);
+    if (element) {
+        ev.target.appendChild(element);
+        trocar_jogador_atual();
+    }
 }
+
 
 function trocar_jogador_atual() {
 
@@ -93,11 +99,12 @@ function trocar_jogador_atual() {
         jogador_atual = 1;
 
         if (numero_jogadores == 2) {
-            num_cartela = (num_cartela === 0) ? 1 : 0;
+            num_cesta_atual = (num_cesta_atual === 0) ? 1 : 0;
         }
     }
 
-    cesta = jogadores[`Jogador ${jogador_atual}`][num_cartela];
+    let cesta = jogadores[`Jogador ${jogador_atual}`][num_cesta_atual];
+    mostrar_cesta(cesta);
 }
 
 function virar_cartao(id) { 
@@ -145,5 +152,15 @@ function embaralharCartoes() {
     });
 }
 
+function mostrar_cesta(cesta) {
+    let id_cesta = `cesta_${cesta}`;
+    console.log(id_cesta);
 
+    let sacolas = document.getElementsByClassName('sacolas');
+    for (let i = 0; i < sacolas.length; i++) {
+        sacolas[i].style.display = "none";
+    }
+
+    document.getElementById(id_cesta).style.display = "block";
+}
 
