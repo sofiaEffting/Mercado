@@ -1,8 +1,13 @@
 let numero_jogadores = 0;
-let cartelas = ['maçã', 'abacaxi', 'caqui', 'pimenta']; 
-let jogadores = {}; 
+let cartelas = ['maçã', 'abacaxi', 'caqui', 'pimenta'];
+let jogadores = {};
 let jogador_atual = 1;
 let num_cartela = 1;
+let cartaVirada = false;
+let idCartaAtual = null;
+
+
+
 
 document.body.onload = () => {
     document.getElementById("container-regras").style.display = "none";
@@ -23,9 +28,9 @@ document.getElementById("botao-regras-sair").addEventListener("click", () => {
     sortear_cartelas();
 })
 
-document.getElementById("botao-enviar").addEventListener("click", function(event) {
-    event.preventDefault(); 
-    numero_jogadores = document.getElementById("usuarios").value;
+document.getElementById("botao-enviar").addEventListener("click", function (event) {
+    event.preventDefault();
+    numero_jogadores = parseInt(document.getElementById("usuarios").value);
     if (validar_numero_jogadores()) {
         mostrar_regras();
     }
@@ -39,12 +44,15 @@ document.getElementById("botao-regras-sair").addEventListener("click", () => {
     document.getElementById("container-regras").style.display = "none";
 })
 
+document.getElementById("formulario-inicio").addEventListener("submit", function (event) {
+    event.preventDefault();
+
 function validar_numero_jogadores() {
     if (numero_jogadores <= 1 || numero_jogadores > 4) {
         alert("Número de jogadores inválido. Tente novamente.")
-        return 0
+        return false
     }
-    return 1
+    return true
 }
 
 function numero_cartelas_por_jogador() {
@@ -58,10 +66,10 @@ function sortear_cartelas() {
         jogadores[`Jogador ${i}`] = [];
     }
 
-    for (let i = 0; i < 2; i++) { 
+    for (let i = 0; i < 2; i++) {
         for (let j = 1; j <= numero_jogadores; j++) {
 
-            let cartelaIndex = Math.floor(Math.random() * cartelas);
+            let cartelaIndex = Math.floor(Math.random() * cartelas,length);
             let cartelaSorteada = cartelas.splice(cartelaIndex, 1)[0];
             jogadores[`Jogador ${j}`].push(cartelaSorteada);
         }
@@ -72,8 +80,8 @@ function sortear_cartelas() {
 
 function allowDrop(ev) {
     ev.preventDefault();
-  }
-  
+}
+
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
@@ -100,11 +108,14 @@ function trocar_jogador_atual() {
     cesta = jogadores[`Jogador ${jogador_atual}`][num_cartela];
 }
 
-function virar_cartao(id) { 
+function virar_cartao(id) {
     let elemento_atual = document.getElementById(id);
-    let outro_lado = id.includes("frente") 
-        ? id.replace("frente", "verso") 
+
+    let outro_lado = id.includes("frente")
+        ? id.replace("frente", "verso")
         : id.replace("verso", "frente");
+
+    let outro_ladoId = document.getElementById(outro_lado);
 
     if (elemento_atual.style.display === "block" || elemento_atual.style.display === "") {
         elemento_atual.style.display = "none";
@@ -112,6 +123,23 @@ function virar_cartao(id) {
     } else {
         elemento_atual.style.display = "block";
         document.getElementById(outro_lado).style.display = "none";
+    }
+}
+
+function validar_cartao(id) {
+    if (cartaVirada) {
+        if (id == idCartaAtual) {
+            virar_cartao(id)
+            cartaVirada = false;
+            idCartaAtual = null;
+        }
+    // } else {
+    //     alert("Só uma carta por vez");
+    // }
+     else {
+        virar_cartao(id)
+        cartaVirada = true;
+        idCartaAtual = id;
     }
 }
 
