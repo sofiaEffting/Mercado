@@ -1,0 +1,89 @@
+document.addEventListener('DOMContentLoaded', () => {
+    let numeroJogadores = 2;
+    const jogadores = [];
+    let jogadorAtual = 0;
+
+    const comecarJogoBtn = document.getElementById('comecar-jogo');
+    const mostrarRegrasBtn = document.getElementById('mostrar-regras');
+    const modalRegras = document.getElementById('modal-regras');
+    const fecharModal = document.querySelector('.fechar');
+    const idiomaSelect = document.getElementById('idioma');
+    const sacolasDiv = document.getElementById('sacolas');
+    const cartoesDiv = document.getElementById('cartoes');
+    const jogadorAtualSpan = document.getElementById('jogador-atual');
+    const anteriorJogadorBtn = document.getElementById('anterior-jogador');
+    const proximoJogadorBtn = document.getElementById('proximo-jogador');
+    const numeroJogadoresInput = document.getElementById('numero-jogadores');
+    
+    // Ação para começar o jogo
+    comecarJogoBtn.addEventListener('click', () => {
+        numeroJogadores = parseInt(numeroJogadoresInput.value);
+        criarJogadores();
+        exibirJogadorAtual();
+        exibirSacolas();
+        exibirCartoes();
+        document.getElementById('navegacao-jogadores').style.display = 'block';
+    });
+
+    // Criar jogadores
+    function criarJogadores() {
+        jogadores.length = 0;
+        for (let i = 1; i <= numeroJogadores; i++) {
+            jogadores.push[`Jogador ${j}`];
+        }
+    }
+
+    // Exibir o jogador atual
+    function exibirJogadorAtual() {
+        jogadorAtualSpan.textContent = jogadores[jogadorAtual];
+    }
+
+    // Navegação entre jogadores
+    anteriorJogadorBtn.addEventListener('click', () => {
+        jogadorAtual = (jogadorAtual - 1 + numeroJogadores) % numeroJogadores;
+        exibirJogadorAtual();
+    });
+
+    proximoJogadorBtn.addEventListener('click', () => {
+        jogadorAtual = (jogadorAtual + 1) % numeroJogadores;
+        exibirJogadorAtual();
+    });
+
+    // Mostrar regras
+    mostrarRegrasBtn.addEventListener('click', () => {
+        modalRegras.style.display = 'block';
+    });
+
+    fecharModal.addEventListener('click', () => {
+        modalRegras.style.display = 'none';
+    });
+
+    // Alterar idioma das regras
+    idiomaSelect.addEventListener('change', (e) => {
+        const idioma = e.target.value;
+        document.querySelectorAll('.regras-texto').forEach((el) => {
+            el.style.display = el.getAttribute('data-lang') === idioma ? 'block' : 'none';
+        });
+    });
+
+    // Exibir sacolas e cartoes
+    function exibirSacolas() {
+        sacolasDiv.innerHTML = '';
+        for (let i = 1; i <= 5; i++) {
+            const sacola = document.createElement('div');
+            sacola.classList.add('sacola');
+            sacola.textContent = 'Sacola ${i}';
+            sacolasDiv.appendChild(sacola);
+        }
+    }
+
+    function exibirCartoes() {
+        cartoesDiv.innerHTML = '';
+        for (let i = 1; i <= 5; i++) {
+            const cartao = document.createElement('div');
+            cartao.classList.add('cartao');
+            cartao.textContent = 'Cartão ${i}';
+            cartoesDiv.appendChild(cartao);
+        }
+    }
+});
